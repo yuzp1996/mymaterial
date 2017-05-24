@@ -25,4 +25,35 @@
  
 
 ————————————
+hosts所在文件夹：
 
+    Windows 系统hosts位于 C:\Windows\System32\drivers\etc\hosts
+    Android（安卓）系统hosts位于 /etc/hosts
+    Mac（苹果电脑）系统hosts位于 /etc/hosts
+    iPhone（iOS）系统hosts位于 /etc/hosts
+    Linux系统hosts位于 /etc/hosts
+    绝大多数Unix系统都是在 /etc/hosts
+
+修改hosts后生效方法：
+
+    Windows
+    开始 -> 运行 -> 输入cmd -> 在CMD窗口输入
+    	
+    ipconfig /flushdns
+    Linux
+    终端输入
+
+    	
+    sudo rcnscd restart
+
+    对于systemd发行版，请使用命令
+    	
+    sudo systemctl restart NetworkManager
+
+________
+我换了ubuntu16来装odoo看着就比那个14的好，14怎么感觉是个坑呢
+
+好了 其实就是装requirement中的文件费事，装完了就完了，把出错的软件包跳出来，先安装别的，最后再单个安装不好安装的，启动服务 python odoo.py -c odooconf.conf  然后还有什么npm什么的，三条语句就可以了
+apt-get install npm
+                node-less
+                nodejs-legacy
