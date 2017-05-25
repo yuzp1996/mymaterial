@@ -57,3 +57,35 @@ ________
 apt-get install npm
                 node-less
                 nodejs-legacy
+_________
+卸载软件 sudo apt-get remove postgresql
+
+找到pgadmin3  再命令行中输入pgadmin3
+
+yuzhipeng@yuzhipeng-Lenovo-G40-70:~$ sudo -u postgres psql template1
+psql (9.5.6)
+Type "help" for help.
+
+template1=# ALTER USER postgres PASSWORD '123456';
+ALTER ROLE
+template1=# \q
+应该加上分号的 我给忘了 ，妈的，搞得一直连接不桑
+https://stackoverflow.com/questions/7695962/postgresql-password-authentication-failed-for-user-postgres/7696398#7696398  这个给了解决方案
+
+Assuming, that you have root access on the box you can do:
+
+sudo -u postgres psql
+If that fails with a database "postgres" does not exists error, then you are most likely not on a Ubuntu or Debian server :-) In this case simply add template1 to the command:
+
+sudo -u postgres psql template1
+If any of those commands fail with an error psql: FATAL:  password authentication failed for user "postgres" then check the file /etc/postgresql/8.4/main/pg_hba.conf: There must be a line like this as the first non-comment line:
+
+local   all         postgres                          ident
+For newer versions of PostgreSQL ident actually might be peer. That's OK also.
+
+Inside the psql shell you can give the DB user postgres a password:
+
+ALTER USER postgres PASSWORD 'newPassword';
+
+————————————
+
