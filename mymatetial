@@ -87,5 +87,8 @@ Inside the psql shell you can give the DB user postgres a password:
 
 ALTER USER postgres PASSWORD 'newPassword';
 
+
+正确创建odoo的数据库的话，还要添加其他的管理员，如果不添加而是用postgres的话会说有安全文图,再pgadmin里添加就可以了，要记得给他管理员的权限，还有密码
 ————————————
+
 
